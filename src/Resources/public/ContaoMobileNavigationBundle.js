@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function(event) { 
+    js_mobile_navigation.run({ })
+})
+
 (function (root, factory) {
     root.js_mobile_navigation = factory();
 }(this, function () {
