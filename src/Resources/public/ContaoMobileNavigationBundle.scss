@@ -1,0 +1,48 @@
+body > .mod_navigation, body > .js_mobile_navigation_blocker, .navicon { display: none; }
+@media(max-width:1023px){
+    body > .mod_navigation { display: block; position: fixed; bottom: 0; right: 0; z-index: 9; transition: all 0.5s ease-in-out; overflow: visible;
+        &.no_counter .submenu_toggle span { opacity: 0; }
+        &.no_buttons_right .submenu_toggle { border: 0; }
+        & > ul { right: -100%; bottom: 0; margin: 0; position: fixed; width: 100%; max-width: 440px; box-sizing: border-box; z-index: 9; overflow-y: scroll; transition: right .3s ease 0s; padding: 20px 0px 20px 30px; border-left: 1px solid #ddd; background: #f8f8f8; 
+            li { position: relative;
+                &.submenu { & > a, & > strong, & > span { padding-right: 80px; } }
+                &.mn_only_toggle_submenu:not(.active) { .submenu_toggle:before { content: ''; width: 375px; height: 46px; position: absolute; right: 0px; } & > a { pointer-events: none; } }
+                a, strong, & > span { display: block; color: #444; padding: 14px 0 14px 12px; border-bottom: 1px solid #ddd; text-decoration: none; transition: padding 0.25s ease-in-out;
+                    &.active { background: #f1f1f1; } 
+                }
+                ul { opacity: 0; margin: 0; padding: 0 0 0 30px; overflow: hidden; line-height: 1; transition: opacity 0.3s ease-in-out;
+                    li > a, li > strong, li > span { color: #666; display: block; box-sizing: content-box; height: 0; border: 0; padding: 0 0 0 12px; transition: all 0.25s ease-in-out; }
+                    &.open { opacity: 1; 
+                        li > a, li > strong, li > span { height: 1em; padding: 14px 0 14px 12px; border-bottom: 1px solid #ddd; } 
+                    }
+                    
+                }
+                .submenu_toggle { position: absolute; right: 0; top: 0; height: 100%; border-left: 1px solid #ddd; color: #666; width: 80px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+                    //&:after { transform: rotate(0deg); background-position: center right; content: ''; width: 20px; height: 100%; position: absolute; right: 24px; transition: all 0.25s ease-in-out; background-image: url('/files/theme/plugins/js_mobile_navigation/angle-right.svg'); background-repeat: no-repeat; background-size: 8px; }
+                    //&.open:after { transform: rotate(90deg); background-position: top 5px right 5px; }
+                    span { pointer-events: none; }
+                    svg { pointer-events: none; height: 20px; margin-bottom: 0; margin-left: 5px; transition: transform 0.25s ease-in-out; }
+                    &.open svg { transform: rotate(90deg); }
+                }                
+            }
+        }
+    }
+    body.js_mobile_navigation_open { overflow: hidden; & > .mod_navigation ul { right: 0; } }
+    .navicon { cursor: pointer; position: absolute; top: 0; right: 0; display: block; height: 100%;
+        .navicon_to_closeicon { position: relative; box-sizing: content-box; width: 30px; height: 18px; background: rgba(255,255,255, 0.0); border-radius: 3px; padding: 0 15px; top: 50%; transform: translateY(-50%);
+            @media(max-width:1023px){ top: 26px; right: 0; position: absolute; }
+            &:before, &:after { content: ''; }
+            .navicon_middle, &:before, &:after { position: absolute; width: 30px; height: 2px; border-radius: 5px; background-color: #000; }
+            &:before { top: 0px; transition: all (400ms/2) ease (400ms/2), transform ease (400ms/2); animation: top_8_to_0 (400ms/2); }
+            &:after { top: 16px; transition: all (400ms/2) ease (400ms/2), transform ease (400ms/2); animation: top_8_to_16 (400ms/2); }
+            .navicon_middle { top: 8px; transition: transform ease (400ms/2); }
+        }
+    }
+    .mm-opening .navicon .navicon_to_closeicon, .js_mobile_navigation_open .navicon .navicon_to_closeicon {
+        &:before { top: 8px; transform: rotate(-45deg); transition: all ease (400ms/2), transform (400ms/2) ease (400ms/2); }
+        .navicon_middle { top: 8px; transform: rotate(-45deg); transition: transform (400ms/2) ease (400ms/2); }
+        &:after { top: 8px; transform: rotate(45deg); transition: all ease (400ms/2), transform (400ms/2) ease (400ms/2); }
+    }    
+}
+@keyframes top_8_to_0  { 0% { top: 8px; } 100% { top: 0; } }
+@keyframes top_8_to_16 { 0% { top: 8px; } 100% { top: 16px; } }
