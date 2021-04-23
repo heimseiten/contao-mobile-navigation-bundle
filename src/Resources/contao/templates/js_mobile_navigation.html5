@@ -1,7 +1,3 @@
-<?php
-    $GLOBALS['TL_HEAD'][] = '<script defer src="bundles/heimseitencontaomobilenavigation/ContaoMobileNavigationBundle.js"></script>';
-    $GLOBALS['TL_CSS'][] = 'bundles/heimseitencontaomobilenavigation/ContaoMobileNavigationBundle.scss|static';
-?>
 <script>
   document.addEventListener("DOMContentLoaded", function(event) { 
     js_mobile_navigation.run({
