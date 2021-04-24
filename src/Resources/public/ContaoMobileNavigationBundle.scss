@@ -25,7 +25,9 @@ body > .mod_navigation, body > .js_mobile_navigation_blocker, .navicon { display
             }
         }
     }
-    body.js_mobile_navigation_open { overflow: hidden; & > .mod_navigation ul { right: 0; } }
+    html.js_mobile_navigation_open, html.js_mobile_navigation_open body { overflow: hidden; 
+        & > .mod_navigation ul { right: 0; } 
+    }
     .navicon { cursor: pointer; position: absolute; top: 0; right: 0; display: block; height: 100%;
         .navicon_to_closeicon { position: relative; box-sizing: content-box; width: 30px; height: 18px; background: rgba(255,255,255, 0.0); border-radius: 3px; padding: 0 15px; top: 50%; transform: translateY(-50%);
             @media(max-width:1023px){ top: 26px; right: 0; position: absolute; }

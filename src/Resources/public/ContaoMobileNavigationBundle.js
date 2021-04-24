@@ -64,12 +64,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     function click_close() {
         document.querySelector('.navicon').addEventListener('click', event => { 
-            document.querySelector('body').classList.toggle('js_mobile_navigation_open')
+            document.querySelector('html').classList.toggle('js_mobile_navigation_open')
         })
         if ( document.querySelector('body > .mod_navigation span.active, body > .mod_navigation strong.active') ) {
             document.querySelector('body > .mod_navigation span.active, body > .mod_navigation strong.active').addEventListener('click', event => { 
-                document.querySelector('body').classList.toggle('js_mobile_navigation_open')
-                document.querySelector('html').classList.toggle('js_mobile_navigation_open_html')
+                document.querySelector('html').classList.toggle('js_mobile_navigation_open')
             })
         }
     }
