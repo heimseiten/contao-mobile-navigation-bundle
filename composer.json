@@ -1,11 +1,9 @@
 {
     "name": "heimseiten/contao-mobile-navigation-bundle",
-    "description": "Es muss nur das JavaScript-Template js_mobile_navigation im Seitenlayout aktiviert werden.",
+    "description": "Es muss ein mod_navigation im Header existieren.",
     "keywords": [
-        "contao",
-        "bundle",
-        "tag 3",
-        "tag 4"
+        "Menü",
+        "Hamburger"
     ],
     "type": "contao-bundle",
     "license": "GPL-3.0-or-later",
