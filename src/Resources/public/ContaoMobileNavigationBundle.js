@@ -1,9 +1,11 @@
-document.addEventListener("DOMContentLoaded", function(event) { 
-    js_mobile_navigation.run({ })
-})
-
 (function (root, factory) {
+
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        js_mobile_navigation.run({ })
+    })    
+
     root.js_mobile_navigation = factory();
+
 }(this, function () {
     var options = {},
         defaults = {
