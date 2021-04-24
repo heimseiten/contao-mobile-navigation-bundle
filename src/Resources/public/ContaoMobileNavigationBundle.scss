@@ -11,9 +11,9 @@ body > .mod_navigation, body > .js_mobile_navigation_blocker, .navicon { display
                     &.active { background: #f1f1f1; } 
                 }
                 ul { opacity: 0; margin: 0; padding: 0 0 0 30px; overflow: hidden; line-height: 1; transition: opacity 0.3s ease-in-out;
-                    li > a, li > strong, li > span { color: #666; display: block; height: 0; border: 0; padding: 0 0 0 12px; transition: all 0.25s ease-in-out; }
+                    li > a, li > strong, li > span { color: #666; display: block; height: 0; min-height: 0; border: 0; padding: 0 0 0 12px; transition: all 0.25s ease-in-out; }
                     &.open { opacity: 1; 
-                        & > li > a, & > li > strong, & > li > span { height: auto; padding: 14px; border-bottom: 1px solid #ddd; } 
+                        & > li > a, & > li > strong, & > li > span { height: auto; min-height: 1em; padding: 14px; border-bottom: 1px solid #ddd; } 
                     }
                     
                 }
