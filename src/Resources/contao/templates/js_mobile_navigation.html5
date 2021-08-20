@@ -1,7 +1,0 @@
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) { 
-    js_mobile_navigation.run({
-      menu_position_under_header: true
-    });
-  });
-</script>
