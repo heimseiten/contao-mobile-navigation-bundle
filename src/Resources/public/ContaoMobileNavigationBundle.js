@@ -11,6 +11,7 @@
         defaults = {
             menu_position_under_header: true,
             main_nav_position: '#header .mod_navigation',
+            main_nav_position_custom: '#header .mod_navigation.mobile_nav',
             navicon_position: '#header .inside'
         };
     function run(userOptions) {
@@ -19,29 +20,33 @@
     }
 
     function switch_navigation_to_mobile() {
-        if (document.querySelector('.navicon') == null) {
+        if ( document.querySelector('.navicon') == null ) {
             document.querySelector(options.navicon_position).insertAdjacentHTML( 'beforeend','<div class="navicon"><div class="icon navicon_to_closeicon"><div class="navicon_middle"></div></div></div>')
         }
-        if (document.querySelector(options.main_nav_position)) {
-            var copied_navigation = document.querySelector(options.main_nav_position).cloneNode(true)
-            document.querySelector('body').appendChild( copied_navigation )
-            var nav = document.querySelector('body > .mod_navigation');
-            nav.querySelectorAll('li.submenu').forEach( submenus => {
-                submenus.insertAdjacentHTML('afterbegin','<div class="submenu_toggle"><span>'+ submenus.querySelector('ul').childElementCount +'</span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M166.9 264.5l-117.8 116c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L127.3 256 25.1 155.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l117.8 116c4.6 4.7 4.6 12.3-.1 17z"/></svg></div>');
-                
-                if (submenus.classList.contains('trail')) { toggle_open(submenus); }
-                    // BEGIN    - Optionen, die als Klasse in Seiteneigenschaften geschrieben werden können
-                if (submenus.classList.contains('mn_open_submenu_in_mobile_nav')) { toggle_open(submenus); } 
-                if (submenus.classList.contains('mn_remove_submenu_toggler')) { submenus.querySelector(':scope > .submenu_toggle').remove(); }
-                if (submenus.classList.contains('mn_only_toggle_submenu')) { }
-                    // END      - Optionen, die als Klasse in Seiteneigenschaften geschrieben werden können
-            })
-            if (options.menu_position_under_header) {
-                document.querySelector('body > .mod_navigation > ul').style.top = document.querySelector('#header').offsetHeight + 'px';
+        if ( document.querySelector(options.main_nav_position_custom) ) {
+            var copied_navigation = document.querySelector(options.main_nav_position_custom).cloneNode(true)
+        } else {
+            if ( document.querySelector(options.main_nav_position) ) {
+                var copied_navigation = document.querySelector(options.main_nav_position).cloneNode(true)
             }
-            click_submenu_toggle();
-            click_close();
         }
+        document.querySelector('body').appendChild( copied_navigation )
+        var nav = document.querySelector('body > .mod_navigation');
+        nav.querySelectorAll('li.submenu').forEach( submenus => {
+            submenus.insertAdjacentHTML('afterbegin','<div class="submenu_toggle"><span>'+ submenus.querySelector('ul').childElementCount +'</span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M166.9 264.5l-117.8 116c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L127.3 256 25.1 155.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l117.8 116c4.6 4.7 4.6 12.3-.1 17z"/></svg></div>');
+            
+            if (submenus.classList.contains('trail')) { toggle_open(submenus); }
+                // BEGIN    - Optionen, die als Klasse in Seiteneigenschaften geschrieben werden können
+            if (submenus.classList.contains('mn_open_submenu_in_mobile_nav')) { toggle_open(submenus); } 
+            if (submenus.classList.contains('mn_remove_submenu_toggler')) { submenus.querySelector(':scope > .submenu_toggle').remove(); }
+            if (submenus.classList.contains('mn_only_toggle_submenu')) { }
+                // END      - Optionen, die als Klasse in Seiteneigenschaften geschrieben werden können
+        })
+        if (options.menu_position_under_header) {
+            document.querySelector('body > .mod_navigation > .level_1').style.top = document.querySelector('#header').offsetHeight + 'px';
+        }
+        click_submenu_toggle();
+        click_close();
     }
 
     function click_submenu_toggle() {

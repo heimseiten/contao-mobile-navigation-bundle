@@ -1,23 +1,75 @@
 body > .mod_navigation, body > .js_mobile_navigation_blocker, .navicon { display: none; }
 @media(max-width:1023px){
-    body > .mod_navigation { display: block; position: fixed; bottom: 0; right: 0; z-index: 9; transition: all 0.5s ease-in-out; overflow: visible;
+    body > .mod_navigation { display: block; 
+        position: fixed; 
+        bottom: 0; 
+        right: 0; 
+        z-index: 9; 
+        transition: all 0.5s ease-in-out; 
+        overflow: visible;
+        ul { margin-bottom: 0; }
         &.no_counter .submenu_toggle span { opacity: 0; }
         &.no_buttons_right .submenu_toggle { border: 0; }
-        & > ul { right: -100%; bottom: 0; margin: 0; position: fixed; width: 100%; max-width: 440px; box-sizing: border-box; z-index: 9; overflow-y: scroll; transition: right .3s ease 0s; padding: 20px 0px 20px 30px; border-left: 1px solid #ddd; background: #f8f8f8; 
+        & > .level_1 { right: -100%; 
+            bottom: 0; 
+            margin: 0; 
+            position: fixed; 
+            width: 100%; 
+            max-width: 440px; 
+            box-sizing: border-box; 
+            z-index: 9; 
+            overflow-y: scroll; 
+            transition: right .3s ease 0s; 
+            padding: 20px 0px 20px 30px; 
+            border-left: 1px solid #ddd; 
+            background: #f8f8f8; 
             li { position: relative;
                 &.submenu { & > a, & > strong, & > span { padding-right: 80px; } }
-                &.mn_only_toggle_submenu:not(.active) { .submenu_toggle:before { content: ''; width: 375px; height: 46px; position: absolute; right: 0px; } & > a { pointer-events: none; } }
-                a, strong, & > span { display: block; color: #444; line-height: 1; padding: 14px; border-bottom: 1px solid #ddd; text-decoration: none; transition: padding 0.25s ease-in-out;
+                &.mn_only_toggle_submenu:not(.active) { 
+                    .submenu_toggle:before { content: ''; 
+                        width: 375px; 
+                        height: 46px; 
+                        position: absolute; 
+                        right: 0px; 
+                    } 
+                    & > a { pointer-events: none; } 
+                }
+                a, strong, & > span { 
+                    display: block; 
+                    color: #444; 
+                    line-height: 1; 
+                    padding: 14px; 
+                    border-bottom: 1px solid #ddd; 
+                    text-decoration: none; 
+                    transition: padding 0.25s ease-in-out;
                     &.active { background: #f1f1f1; } 
                 }
                 ul { opacity: 0; margin: 0; padding: 0 0 0 30px; overflow: hidden; line-height: 1; transition: opacity 0.3s ease-in-out;
-                    li > a, li > strong, li > span { color: #666; display: block; height: 0; min-height: 0; border: 0; padding: 0 0 0 12px; transition: all 0.25s ease-in-out; }
+                    li > a, li > strong, li > span { 
+                        color: #666; 
+                        display: block; 
+                        height: 0; 
+                        min-height: 0; 
+                        border: 0; 
+                        padding: 0 0 0 12px; 
+                        transition: all 0.25s ease-in-out; }
                     &.open { opacity: 1; 
                         & > li > a, & > li > strong, & > li > span { height: auto; min-height: 1em; padding: 14px; border-bottom: 1px solid #ddd; } 
                     }
-                    
                 }
-                .submenu_toggle { position: absolute; box-sizing: border-box; right: 0; top: 0; border-left: 1px solid #ddd; color: #666; width: 80px; cursor: pointer; padding: 14px; display: flex; align-items: flex-start; justify-content: center;
+                .submenu_toggle { 
+                    position: absolute; 
+                    box-sizing: border-box; 
+                    right: 0; 
+                    top: 0; 
+                    border-left: 1px solid #ddd; 
+                    color: #666; 
+                    width: 80px; 
+                    cursor: pointer; 
+                    padding: 14px; 
+                    display: flex; 
+                    align-items: flex-start; 
+                    justify-content: center;
                     span { pointer-events: none; line-height: 1; }
                     svg { pointer-events: none; width: 1em; height: 1em; margin-bottom: 0; margin-left: 5px; transition: transform 0.25s ease-in-out; }
                     &.open svg { transform: rotate(90deg); }
@@ -26,10 +78,19 @@ body > .mod_navigation, body > .js_mobile_navigation_blocker, .navicon { display
         }
     }
     html.js_mobile_navigation_open, html.js_mobile_navigation_open body { overflow: hidden; 
-        & > .mod_navigation ul { right: 0; } 
+        & > .mod_navigation > .level_1 { right: 0; } 
     }
     .navicon { cursor: pointer; position: absolute; top: 0; right: 0; display: block; height: 100%;
-        .navicon_to_closeicon { position: relative; box-sizing: content-box; width: 30px; height: 18px; background: rgba(255,255,255, 0.0); border-radius: 3px; padding: 0 15px; top: 50%; transform: translateY(-50%);
+        .navicon_to_closeicon { 
+            position: relative; 
+            box-sizing: content-box; 
+            width: 30px; 
+            height: 18px; 
+            background: rgba(255,255,255, 0.0); 
+            border-radius: 3px; 
+            padding: 0 15px; 
+            top: 50%; 
+            transform: translateY(-50%);
             @media(max-width:1023px){ top: 26px; right: 0; position: absolute; }
             &:before, &:after { content: ''; }
             .navicon_middle, &:before, &:after { position: absolute; width: 30px; height: 2px; border-radius: 5px; background-color: #000; }
