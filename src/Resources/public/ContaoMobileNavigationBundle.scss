@@ -91,6 +91,7 @@ body > .mod_navigation, body > .js_mobile_navigation_blocker, .navicon { display
             padding: 0 15px; 
             top: 50%; 
             transform: translateY(-50%);
+            z-index: 9;
             @media(max-width:1023px){ top: 26px; right: 0; position: absolute; }
             &:before, &:after { content: ''; }
             .navicon_middle, &:before, &:after { position: absolute; width: 30px; height: 2px; border-radius: 5px; background-color: #000; }
