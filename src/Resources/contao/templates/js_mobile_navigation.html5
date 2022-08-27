@@ -1,0 +1,9 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        js_mobile_navigation.run({ 
+            menu_position_under_header: false,
+            main_nav_position: '.mobile_navigation',
+            navicon_position: '#header > .inside'
+        })
+    })    
+</script>
