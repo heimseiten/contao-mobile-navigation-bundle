@@ -1,37 +1,37 @@
 (function (root, factory) {
 
-    document.addEventListener("DOMContentLoaded", function(event) { 
-        js_mobile_navigation.run({ })
-    })    
-
     root.js_mobile_navigation = factory();
 
 }(this, function () {
     var options = {},
         defaults = {
             menu_position_under_header: true,
-            main_nav_position: '#header .mod_navigation',
-            main_nav_position_custom: '#header .mod_navigation.mobile_nav',
-            navicon_position: '#header .inside'
+            main_nav_position: '',
+            navicon_position: ''
         };
     function run(userOptions) {
         setOptions(userOptions);
-        if (window.innerWidth < 1024) { switch_navigation_to_mobile(); } else { add_EventListener_rezise(); }
+        if (window.innerWidth < 1024) { 
+            switch_navigation_to_mobile() 
+        } else { 
+            add_EventListener_rezise()
+        }
     }
 
     function switch_navigation_to_mobile() {
         if ( document.querySelector('.navicon') == null ) {
-            document.querySelector(options.navicon_position).insertAdjacentHTML( 'beforeend','<div class="navicon"><div class="icon navicon_to_closeicon"><div class="navicon_middle"></div></div></div>')
+            document.querySelector(options.navicon_position).insertAdjacentHTML( 'beforeend',
+                '<div class="navicon"><div class="icon navicon_to_closeicon"><div class="navicon_middle"></div></div></div>')
         }
-        if ( document.querySelector(options.main_nav_position_custom) ) {
-            var copied_navigation = document.querySelector(options.main_nav_position_custom).cloneNode(true)
-        } else {
-            if ( document.querySelector(options.main_nav_position) ) {
-                var copied_navigation = document.querySelector(options.main_nav_position).cloneNode(true)
-            }
+        if ( document.querySelector(options.main_nav_position) ) {
+            var copied_navigation = document.querySelector(options.main_nav_position).cloneNode(true)
         }
         document.querySelector('body').appendChild( copied_navigation )
-        var nav = document.querySelector('body > .mod_navigation');
+        var nav = document.querySelector('body > .mod_navigation')
+        
+        var original_height_header = document.querySelector("#header").offsetHeight
+        nav.style.setProperty('--initial_header_height', original_height_header)
+        
         nav.querySelectorAll('li.submenu').forEach( submenus => {
             submenus.insertAdjacentHTML('afterbegin','<div class="submenu_toggle"><span>'+ submenus.querySelector('ul').childElementCount +'</span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path d="M166.9 264.5l-117.8 116c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L127.3 256 25.1 155.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l117.8 116c4.6 4.7 4.6 12.3-.1 17z"/></svg></div>');
             
