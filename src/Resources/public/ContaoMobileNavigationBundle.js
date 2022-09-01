@@ -71,12 +71,16 @@
     }
     
     function click_close() {
-        document.querySelector('.navicon').addEventListener('click', event => { 
+        document.querySelector('.navicon').addEventListener('click', e => { 
             document.querySelector('html').classList.toggle('js_mobile_navigation_open')
         })
-        if ( document.querySelector('body > .mod_navigation span.active, body > .mod_navigation strong.active') ) {
-            document.querySelector('body > .mod_navigation span.active, body > .mod_navigation strong.active').addEventListener('click', event => { 
-                document.querySelector('html').classList.toggle('js_mobile_navigation_open')
+        if ( document.querySelector('body > .mod_navigation > .level_1') ) {
+            console.log('as');
+            document.querySelector('body > .mod_navigation > .level_1').addEventListener('click', e => { 
+                console.log(e.target.nodeName)
+                if ( e.target.nodeName == 'A' || e.target.nodeName == 'STRONG' || e.target.nodeName == 'SPAN' ) {
+                    document.querySelector('html').classList.toggle('js_mobile_navigation_open')
+                }
             })
         }
     }
