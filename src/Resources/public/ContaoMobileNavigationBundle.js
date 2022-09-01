@@ -75,9 +75,7 @@
             document.querySelector('html').classList.toggle('js_mobile_navigation_open')
         })
         if ( document.querySelector('body > .mod_navigation > .level_1') ) {
-            console.log('as');
             document.querySelector('body > .mod_navigation > .level_1').addEventListener('click', e => { 
-                console.log(e.target.nodeName)
                 if ( e.target.nodeName == 'A' || e.target.nodeName == 'STRONG' || e.target.nodeName == 'SPAN' ) {
                     document.querySelector('html').classList.toggle('js_mobile_navigation_open')
                 }
