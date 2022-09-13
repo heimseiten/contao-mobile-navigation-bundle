@@ -5,7 +5,6 @@
 }(this, function () {
     var options = {},
         defaults = {
-            menu_position_under_header: true,
             fullscreen: false,
             slide_from_left: false,
             main_nav_position: '',
@@ -44,9 +43,6 @@
             if (submenus.classList.contains('mn_only_toggle_submenu')) { }
                 // END      - Optionen, die als Klasse in Seiteneigenschaften geschrieben werden können
         })
-        if (options.menu_position_under_header) {
-            document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation > .level_1').style.top = document.querySelector('#header').offsetHeight + 'px'
-        }
         if (options.fullscreen) {
             document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation').classList.add('fullscreen')
             document.querySelector('body .navicon').classList.add('fullscreen')
