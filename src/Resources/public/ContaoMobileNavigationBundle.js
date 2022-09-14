@@ -7,8 +7,8 @@
         defaults = {
             fullscreen: false,
             slide_from_left: false,
-            main_nav_position: '',
-            navicon_position: ''
+            css_path_main_nav_position: '',
+            css_path_navicon_position: ''
         }
     function run(userOptions) {
         setOptions(userOptions)
@@ -21,16 +21,18 @@
 
     function switch_navigation_to_mobile() {
         if ( document.querySelector('.navicon') == null ) {
-            document.querySelector(options.navicon_position).insertAdjacentHTML( 'beforeend',
+            document.querySelector(options.css_path_navicon_position).insertAdjacentHTML( 'beforeend',
                 '<div class="navicon"><div class="inside"><div class="lines line_top"></div><div class="lines line_middle"></div><div class="lines line_bottom"></div>')
         }
-        if ( document.querySelector(options.main_nav_position) ) {
-            var copied_navigation = document.querySelector(options.main_nav_position).cloneNode(true)
+        if ( document.querySelector(options.css_path_main_nav_position) ) {
+            var copied_navigation = document.querySelector(options.css_path_main_nav_position).cloneNode(true)
+        } else {
+            console.log('No navigation was found at CSS path: '+options.css_path_main_nav_position)
+            return
         }
-
         document.querySelector('body').insertAdjacentHTML( 'beforeend', '<div class="mobile_navigation_wrapper"></div>')
         document.querySelector('body > .mobile_navigation_wrapper').appendChild( copied_navigation )
-        
+
         var original_height_header = document.querySelector("#header").offsetHeight
         document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation').style.setProperty('--initial_header_height', original_height_header)
         document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation').querySelectorAll('li.submenu').forEach( submenus => {
