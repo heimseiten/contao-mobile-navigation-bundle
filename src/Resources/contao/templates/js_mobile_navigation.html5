@@ -3,8 +3,8 @@
         js_mobile_navigation.run({ 
             fullscreen: false,
             slide_from_left: false,
-            main_nav_position: '#header .mobile_navigation',
-            navicon_position: '#header .inside'
+            css_path_main_nav_position: 'header nav',
+            css_path_navicon_position: 'header > div'
         })
     })    
 </script>
