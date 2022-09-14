@@ -46,8 +46,7 @@
                 // END      - Optionen, die als Klasse in Seiteneigenschaften geschrieben werden können
         })
         if (options.fullscreen) {
-            document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation').classList.add('fullscreen')
-            document.querySelector('body .navicon').classList.add('fullscreen')
+            document.querySelector('body').classList.add('fullscreen_mobile_nav')
         }
         if (options.slide_from_left) {
             document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation').classList.add('slide_from_left')
