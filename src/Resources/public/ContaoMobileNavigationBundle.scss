@@ -9,22 +9,20 @@
     .mod_navigation { 
         display: flex; 
         position: fixed; 
-        bottom: 0; 
-        right: 0; 
         z-index: 9; 
         transition: left 0.5s ease-in-out, right 0.5s ease-in-out; 
         overflow: visible;
+        width: 100%;
         ul { margin-bottom: 0; }
         &.no_counter .submenu_toggle span { opacity: 0; }
         &.no_buttons_right .submenu_toggle { border: 0; }
-        &.slide_from_left { right: auto; left: -100%; }
-        &:not(.slide_from_left) { right: -100%; }
         &.fullscreen { 
+            top: calc( var(--initial_header_height) * 1px );
             width: 100vw;
             max-width: 100vw;
             height: 100vh;
             background-color: #fff;
-            transition: left 1s ease-in-out, right 1s ease-in-out;
+            transition: left 0.4s ease-in-out, right 0.4s ease-in-out;
             .level_1 {
                 display: flex;
                 flex-wrap: wrap;
@@ -76,12 +74,19 @@
     }
 }
 
-html.js_mobile_navigation_open, 
-html.js_mobile_navigation_open body { overflow: hidden; 
-    .mobile_navigation_wrapper > .mod_navigation {
-        &:not(.slide_from_left) { right: 0; } 
-        &.slide_from_left { left: 0; } 
-    }
+html.js_mobile_navigation_open, html.js_mobile_navigation_open body { overflow: hidden; }
+
+html .mobile_navigation_wrapper > .mod_navigation {
+    &.slide_from_left { left: -100%; }
+    &:not(.slide_from_left) { right: -100%; }
+    &:not(.fullscreen) .level_1 { right: -100%; } 
+    &.slide_from_left:not(.fullscreen) .level_1 { left: -100%; } 
+}
+html.js_mobile_navigation_open .mobile_navigation_wrapper > .mod_navigation {
+    &:not(.slide_from_left) { right: 0; } 
+    &.slide_from_left { left: 0; } 
+    &:not(.fullscreen):not(.slide_from_left) .level_1 { right: 0; } 
+    &.slide_from_left:not(.fullscreen) .level_1 { left: 0; }
 }
 
 .mobile_navigation_wrapper .mod_navigation {
@@ -90,13 +95,13 @@ html.js_mobile_navigation_open body { overflow: hidden;
         height: calc( 100% - ( var(--initial_header_height, 100px) * 1px ) );
         margin: 0; 
         position: fixed; 
-        width: 100%;
         max-width: 440px; 
         box-sizing: border-box; 
         z-index: 9; 
         overflow-y: scroll; 
         transition: right .3s ease 0s, left .3s ease 0s; 
-        padding: 20px 0px 20px 30px; 
+        padding: 20px 0px 20px 30px;
+        width: 100%;
         border-left: 1px solid #ddd; 
         background: #f8f8f8; 
     }
@@ -122,7 +127,6 @@ html.js_mobile_navigation_open body { overflow: hidden;
             border-bottom: 1px solid #ddd; 
             text-decoration: none; 
             transition: padding 0.25s ease-in-out;
-            &.active { background: #f1f1f1; } 
         }
         ul { 
             opacity: 0; 
