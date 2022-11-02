@@ -3,7 +3,7 @@
     body:not(.fullscreen_mobile_nav) .navicon { display: none; } 
 }
 @media(max-width:1023px){  
-    header nav { display: none; }
+    #header nav.mod_navigation { display: none; }
 }
 .mobile_navigation_wrapper {
     .mod_navigation { 
