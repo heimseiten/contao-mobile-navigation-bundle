@@ -52,7 +52,27 @@ html.js_mobile_navigation_open  body:not(.fullscreen_mobile_nav) .mobile_navigat
         padding: 20px 0px 20px 30px;
         width: 100%;
         border-left: 1px solid #ddd; 
-        background: #f8f8f8; 
+        background: #f8f8f8;
+        & > li:not(.open) {
+            .level_2, .level_3, .level_4, .level_5 { 
+                & > li > a, & > li > strong, & > li > span { padding: 0; border-bottom: 0; font-size: 0; } 
+            } 
+        }
+        .level_2 > li:not(.open) {
+            .level_3, .level_4, .level_5 { 
+                & > li > a, & > li > strong, & > li > span { padding: 0; border-bottom: 0; font-size: 0; } 
+            } 
+        }
+        .level_3 > li:not(.open) {
+            .level_4, .level_5 { 
+                & > li > a, & > li > strong, & > li > span { padding: 0; border-bottom: 0; font-size: 0; } 
+            } 
+        } 
+        .level_4 > li:not(.open) {
+            .level_5 { 
+                & > li > a, & > li > strong, & > li > span { padding: 0; border-bottom: 0; font-size: 0; } 
+            } 
+        }
     }
     li { position: relative;
         &.submenu { 
@@ -96,7 +116,7 @@ html.js_mobile_navigation_open  body:not(.fullscreen_mobile_nav) .mobile_navigat
                 & > li > a, & > li > strong, & > li > span { 
                     padding: 14px; 
                     border-bottom: 1px solid #ddd; 
-                    font-size: var(--font_size);
+                    font-size: var(--font_size, 1em);
                 } 
             }
         }
@@ -230,7 +250,7 @@ body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
         & > li > a, & > li > strong, & > li > span { 
             padding: 14px; 
             border: 0; 
-            font-size: var(--font_size);
+            font-size: var(--font_size, 1em);
             &.active { background: transparent !important; } 
         } 
         &.open { 
