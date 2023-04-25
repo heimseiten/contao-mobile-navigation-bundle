@@ -22,7 +22,7 @@
     function switch_navigation_to_mobile() {
         if ( document.querySelector('.navicon') == null ) {
             document.querySelector(options.css_path_navicon_position).insertAdjacentHTML( 'beforeend',
-                '<div class="navicon"><div class="inside"><div class="lines line_top"></div><div class="lines line_middle"></div><div class="lines line_bottom"></div>')
+                '<div class="navicon_wrapper"><div class="inside"><div class="navicon"><div class="inside"><div class="lines line_top"></div><div class="lines line_middle"></div><div class="lines line_bottom"></div></div></div>')
         }
         if ( document.querySelector(options.css_path_main_nav_position) ) {
             var copied_navigation = document.querySelector(options.css_path_main_nav_position).cloneNode(true)
