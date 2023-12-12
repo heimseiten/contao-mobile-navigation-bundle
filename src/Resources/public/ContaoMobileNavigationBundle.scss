@@ -287,7 +287,7 @@ body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
     ul { opacity: 1; padding: 0;
         & > li > a, & > li > strong, & > li > span {
             color: var(--color_level_1);
-            padding: var(--box_padding); 
+            padding: var(--box_padding)  var(--box_padding) 0 var(--box_padding); 
             border: 0; 
             font-size: var(--font_size, 1em);
             &.active { background: transparent !important; } 
