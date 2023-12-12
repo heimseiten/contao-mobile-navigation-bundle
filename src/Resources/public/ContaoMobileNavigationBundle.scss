@@ -208,6 +208,7 @@ html.js_mobile_navigation_open  body:not(.fullscreen_mobile_nav) .mobile_navigat
 
 body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
     --box_padding: 20px;
+    --box_background: #fff;
     --color_level_1: var(--font_color);
     --color_level_2: var(--color_level_1);
     --decoration_on_hover_and_active_level_1: none;
@@ -254,7 +255,7 @@ body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
             width: calc( ( 100% / 3 ) - ( var(--margin) * 2 ) );
             margin: var(--margin);
             max-width: 400px;
-            background: #fff;
+            background: var(--box_background);
             @media(max-width:1023px){ 
                 width: 100%; 
                 margin-top: 40px;
