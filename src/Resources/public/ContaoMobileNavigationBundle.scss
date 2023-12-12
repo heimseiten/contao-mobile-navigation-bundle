@@ -207,25 +207,37 @@ html.js_mobile_navigation_open  body:not(.fullscreen_mobile_nav) .mobile_navigat
 @keyframes top_8_to_0  { 0% { top: var(--line_top); } 100% { top: 0; } }
 @keyframes top_8_to_16 { 0% { top: var(--line_top); } 100% { top: calc( var(--line_top) * 2 ); } }
 
-body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation { 
+body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
+    --box_padding: 20px;
+    --color_level_1: var(--font_color);
+    --color_level_2: var(--color_level_1);
+    --decoration_on_hover_and_active_level_1: none;
+    --decoration_on_hover_and_active_level_2: underline;
+    --color_on_hover_and_active_level_1: var(--color_level_1);
+    --color_on_hover_and_active_level_2: var(--color_on_hover_and_active_level_1);
     top: 0;
     width: 100vw;
     max-width: 100vw;
     height: 100vh;
     height: 100svh;
-    background: #fff;
+    background: rgb(255 255 255 / 75%);
     overflow: visible;
     overflow-x: scroll;
     transition: left 0.4s ease-in-out, right 0.4s ease-in-out;
+    display: flex;
+    text-wrap: wrap;
+    align-items: center;
     .level_1 {
         display: flex;
         flex-wrap: wrap;
-        position: relative;
-        top: 80px;
-        width: 1000px;
-        max-width: 100%;
+        align-content: flex-start;
         justify-content: space-between;
-        height: 900px;
+        position: relative;
+        top: 0;
+        width: 1250px;
+        max-width: 100%;
+        height: auto;
+        min-height: 600px;
         max-height: 100%;
         margin: auto;
         padding: 0;
@@ -238,42 +250,56 @@ body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
             display: block;
         }
         strong.active { text-decoration: none; }
-        li a:hover { text-decoration: underline; }
         & > li {
-            width: 50%;
+            --margin: 20px;
+            width: calc( ( 100% / 3 ) - ( var(--margin) * 2 ) );
+            margin: var(--margin);
             max-width: 400px;
+            background: #fff;
             @media(max-width:1023px){ 
                 width: 100%; 
                 margin-top: 40px;
                 &:first-child { margin-top: 0; }
             }
-            & > a, & > strong, & > span { 
+            & > a, & > strong, & > span {
                 font-size: 25px;
                 font-weight: 200;
                 &:hover { text-decoration: none; }
             }
         }  
         .level_2 {
-            padding: 15px;
+            padding: var(--box_padding);
             list-style: none;
-            strong.active { text-decoration: underline; }
+            strong.active { 
+                text-decoration: var(--decoration_on_hover_and_active_level_2); 
+                color: var(--color_on_hover_and_active_level_2);
+            }
             & > li > a, & > li > strong { 
                 font-size: 1em;
                 line-height: 2;
-                font-weight: 700;
-                color: var(--color_1);
+                font-weight: 700; 
+                color: var(--color_level_2);
                 padding: 0;
                 @media(max-width:1023px){ font-size: 20px; }
             }
         }
     }
     ul { opacity: 1; padding: 0;
-        & > li > a, & > li > strong, & > li > span { 
-            padding: 14px; 
+        & > li > a, & > li > strong, & > li > span {
+            color: var(--color_level_1);
+            padding: var(--box_padding); 
             border: 0; 
             font-size: var(--font_size, 1em);
             &.active { background: transparent !important; } 
-        } 
+        }
+        &.level_1 > li > a:hover { 
+            text-decoration: var(--decoration_on_hover_and_active_level_1); 
+            color: var(--color_on_hover_and_active_level_1);
+        }
+        &.level_2 > li > a:hover { 
+            text-decoration: var(--decoration_on_hover_and_active_level_2); 
+            color: var(--color_on_hover_and_active_level_2);
+        }
         &.open { 
             & > li > a, & > li > strong, & > li > span { 
                 border: 0;
