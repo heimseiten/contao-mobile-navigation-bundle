@@ -154,7 +154,6 @@ html.js_mobile_navigation_open  body:not(.fullscreen_mobile_nav) .mobile_navigat
     cursor: pointer; 
     position: relative; 
     padding: var(--padding);
-    right: -10px;
     -webkit-tap-highlight-color: transparent;
     .inside { 
         position: relative; 
@@ -307,4 +306,21 @@ body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
         }
     }
     .submenu_toggle { display: none; }
+}
+body.fullscreen_mobile_nav .navicon_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    & > .inside {
+        width: var(--header_width, 100%);
+        max-width: 100%;
+        height: var(--header_height, auto);
+        margin: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        @media(max-width:1023px){ padding: 0 2.5%; }
+        .navicon { z-index: 10; }
+    }
 }
