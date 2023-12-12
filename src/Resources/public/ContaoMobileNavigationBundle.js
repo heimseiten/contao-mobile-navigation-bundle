@@ -82,7 +82,7 @@
         })
         if ( document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation > .level_1') ) {
             document.querySelector('body > .mobile_navigation_wrapper > .mod_navigation > .level_1').addEventListener('click', e => { 
-                if ( e.target.nodeName == 'A' || e.target.nodeName == 'STRONG' || e.target.nodeName == 'SPAN' ) {
+                if ( e.target.nodeName == 'STRONG' || e.target.nodeName == 'SPAN' ) {
                     document.querySelector('html').classList.toggle('js_mobile_navigation_open')
                 }
             })
