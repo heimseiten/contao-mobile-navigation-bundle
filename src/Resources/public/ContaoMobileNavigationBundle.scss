@@ -254,7 +254,6 @@ body.fullscreen_mobile_nav .mobile_navigation_wrapper .mod_navigation {
             --margin: 20px;
             width: calc( ( 100% / 3 ) - ( var(--margin) * 2 ) );
             margin: var(--margin);
-            max-width: 400px;
             background: var(--box_background);
             @media(max-width:1023px){ 
                 width: 100%; 
