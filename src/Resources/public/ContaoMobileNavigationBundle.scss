@@ -1,6 +1,6 @@
 @media(min-width:1024px){
-    body.fullscreen_mobile_nav header nav,
-    body:not(.fullscreen_mobile_nav) .navicon { display: none; } 
+    body.fullscreen_mobile_nav #wrapper header nav,
+    body:not(.fullscreen_mobile_nav) .navicon_wrapper { display: none; } 
 }
 @media(max-width:1023px){  
     #header nav.mod_navigation { display: none; }
